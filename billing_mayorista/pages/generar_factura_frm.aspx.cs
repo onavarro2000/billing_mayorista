@@ -534,10 +534,50 @@ namespace billing_mayorista.pages
 
 
             //Stall the current thread for 0.1 seconds
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(2000); 
 
         }
 
-        
+        protected void toXLS_Click(object sender, ImageClickEventArgs e)
+        {
+            if (
+                  String.IsNullOrEmpty(this.lstOperador.Text) ||
+                  String.IsNullOrEmpty(this.txtNumeroFactura.Text) ||
+                  String.IsNullOrEmpty(this.txtFactCoubicacion.Text) ||
+                  String.IsNullOrEmpty(this.txtEmitidaEl.SelectedDate.ToString()) ||
+                  String.IsNullOrEmpty(this.txtVenceEl.SelectedDate.ToString()) ||
+                  String.IsNullOrEmpty(this.txtPeriodo.Text)
+                )
+            {
+                string sMensaje = "Debe de digitar el # de factura, # de factura de coubicacion,  " +
+                                 "fecha de emisión / vencimiento, y el periódo de facturación.";
+                this.popupNotificacion.Title = "Validación de datos";
+                popupNotificacion.Text = sMensaje;
+                popupNotificacion.TitleIcon = "Deny";
+                popupNotificacion.ContentIcon = "Deny";
+                popupNotificacion.Show();
+                //lblMsjData.Text = "Verifique que ha seleccionado el numero de factura, fecha de emision/vencimiento y el periódo de facturación.";
+
+
+            }
+            else
+            {
+                lblMsjData.Text = "";
+                Session["OPERADOR"] = this.lstOperador.Text;
+                Session["CICLOFACT"] = string.Concat(this.lstMes.Text.Trim().PadLeft(2, '0'), "-", this.lstAnio.Text.Trim());
+                Session["NUMFACTURA"] = this.txtNumeroFactura.Text;
+                Session["NUMFACTURACOUBICACION"] = this.txtFactCoubicacion.Text;
+                Session["FECHAEMISION"] = this.txtEmitidaEl.SelectedDate;
+                Session["FECHAVENCIMIENTO"] = this.txtVenceEl.SelectedDate;
+                Session["PERIODOFACTURACION"] = this.txtPeriodo.Text;
+
+                string url = "to_XLS_frm.aspx";
+                string s = "window.open('" + url + "', 'popup_window', 'width=650,height=400,left=100,top=100,resizable=yes,scrollbars=yes');";
+                //ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), s, true);
+
+            }
+
+        }
     }
 }

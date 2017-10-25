@@ -11,8 +11,16 @@
         .auto-style4 {
             text-align: center;
         }
+        .auto-style5 {
+            width: auto;
+            border-style: solid;
+            border-width: 4px;
+        }
+        .auto-style6 {
+            width: 51px;
+        }
         </style>
-
+    <link href="../Content/facturacion.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,7 +37,7 @@
         <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
         </telerik:RadAjaxManager>
         <div>
-            <table align="center" class="auto-style1">
+            <table align="center" class="auto-style5">
                 <tr>
                     <td class="auto-style4" colspan="11">
                         <h1>Generación de factura.</h1>
@@ -43,9 +51,9 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
+                    <td></td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -76,7 +84,7 @@
                         </asp:DropDownList>
                     </td>
                     <td>Mes:</td>
-                    <td class="auto-style5">
+                    <td>
                         <asp:DropDownList ID="lstMes" runat="server">
                             <asp:ListItem Value="1">Enero</asp:ListItem>
                             <asp:ListItem Value="2">Febrero</asp:ListItem>
@@ -93,7 +101,7 @@
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>Moneda</td>
+                    <td class="auto-style6">Moneda</td>
                     <td>
                         <asp:DropDownList ID="lstMoneda" runat="server" AutoPostBack="True" OnSelectedIndexChanged="lstMoneda_SelectedIndexChanged">
                         </asp:DropDownList>
@@ -107,9 +115,9 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -122,9 +130,9 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -137,9 +145,9 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -171,7 +179,7 @@
                         <asp:ImageButton ID="btnFacturar" runat="server" ImageUrl="~/imagenes/facturar_50x50.png" OnClick="btnFacturar_Click" ToolTip="Generar Factura" />
                     </td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>
+                    <td class="auto-style6">
                         <asp:ImageButton ID="btnExit" runat="server" ImageUrl="~/imagenes/exit_50x50.png" ToolTip="Retornar" PostBackUrl="~/Inicio_frm.aspx" />
                     </td>
                     <td></td>
@@ -186,7 +194,7 @@
                     <td>&nbsp;</td>
                     <td class="auto-style8">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -206,11 +214,95 @@
         </div>
         <p>
             </p>
+        <asp:Panel ID="Panel1" runat="server">
+            <table align="center" class="auto-style5">
+                <tr>
+                    <td class="auto-style4" colspan="7">
+                        <h3>Exportar Factura.</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td># Factura</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:TextBox ID="txtNumeroFactura" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="validatorNumFactura" runat="server" ControlToValidate="txtNumeroFactura" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                    <td># Fac. Coubicación</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:TextBox ID="txtFactCoubicacion" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="validaFactCoubicacion" runat="server" ControlToValidate="txtFactCoubicacion" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Emitida el:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <telerik:RadDatePicker ID="txtEmitidaEl" Runat="server" Culture="en-US" FocusedDate="2017-01-01" MinDate="2017-01-01">
+                        </telerik:RadDatePicker>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="validatorFechaEmision" runat="server" ControlToValidate="txtEmitidaEl" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>Vence el:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <telerik:RadDatePicker ID="txtVenceEl" Runat="server" Culture="en-US" FocusedDate="2017-01-01" MinDate="2017-01-01">
+                        </telerik:RadDatePicker>
+                        <asp:RequiredFieldValidator ID="validatorFechaVencimiento" runat="server" ControlToValidate="txtVenceEl" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Periódo:</td>
+                    <td>&nbsp;</td>
+                    <td colspan="5">
+                        <asp:TextBox ID="txtPeriodo" runat="server" Width="330px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="validatorPeriodo" runat="server" ControlToValidate="txtPeriodo" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style4">
+                        <h3>Opciones</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="RadUploadProgressArea_rtl">
+                        <asp:ImageButton ID="toXLS" runat="server" ImageUrl="~/imagenes/xls.png" OnClick="toXLS_Click" />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
         <p>
+            <telerik:RadNotification  ID="popupNotificacion" runat="server" Text="Initial text" Position="Center"
+                    AutoCloseDelay="0" Width="350" Title="Alerta" Animation="Slide" 
+                    EnableRoundedCorners="true"  EnableShadow="true">
+            </telerik:RadNotification>
             </p>
-        <p>
-            </p>
-        <table align="center" class="auto-style6">
+        <table align="center" class="auto-style5">
             <tr>
                 <td colspan="3">
                     <h2>Mensajes del sistema.</h2>

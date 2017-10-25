@@ -27,8 +27,6 @@ namespace billing_mayorista.Clases
         #region comandos_Oracle
         OracleConnection _connectionOra = new OracleConnection(StringConeccion.string_cnxOraJASEC); //new OracleConnection(Conectar.string_conexionOra);
         OracleCommand _command;
-        OracleDataAdapter _adapOra;
-        OracleTransaction _transaccionOra;
         OracleDataReader _reader;
         #endregion comandos_Oracle
 

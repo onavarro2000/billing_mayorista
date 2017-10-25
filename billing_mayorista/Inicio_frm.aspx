@@ -15,6 +15,8 @@
             text-align: center;
         }
         </style>
+
+    <link href="Content/facturacion.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -34,14 +36,14 @@
                         <DynamicSelectedStyle BackColor="#507CD1" />
                         <Items>
                             <asp:MenuItem Text="Catálogo" Value="Catalogo">
-                                <asp:MenuItem Text="Feriados" Value="Feriado"></asp:MenuItem>
+                                <asp:MenuItem Text="Feriados" Value="Feriado" NavigateUrl="~/pages/feriados_frm.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Operadores" Value="Operador"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Facturar" Value="Facturar">
                                 <asp:MenuItem Text="Generar" Value="Generar" NavigateUrl="~/pages/generar_factura_frm.aspx" ToolTip="Generar la factura."></asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Acerca de .." Value="Acerca "></asp:MenuItem>
-                            <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
+                            <asp:MenuItem Text="Acerca de .." Value="Acerca " NavigateUrl="~/pages/acercaDe_frm.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Salir" Value="Salir" NavigateUrl="http://intranet/"></asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
                         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />

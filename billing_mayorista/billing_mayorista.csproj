@@ -44,6 +44,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -137,6 +148,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\facturacion.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -149,11 +161,20 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="imagenes\add.png" />
+    <Content Include="imagenes\DeleteRed.png" />
     <Content Include="imagenes\exit_50x50.png" />
     <Content Include="imagenes\facturar_50x50.png" />
+    <Content Include="imagenes\fondo.jpg" />
     <Content Include="imagenes\jasec_info.png" />
+    <Content Include="imagenes\osvaldo.jpg" />
+    <Content Include="imagenes\Salir2.png" />
+    <Content Include="imagenes\xls.png" />
     <Content Include="Inicio_frm.aspx" />
+    <Content Include="pages\acercaDe_frm.aspx" />
+    <Content Include="pages\feriados_frm.aspx" />
     <Content Include="pages\generar_factura_frm.aspx" />
+    <Content Include="pages\to_XLS_frm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -199,6 +220,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Clases\Facturar.cs" />
+    <Compile Include="Clases\Feriado.cs" />
     <Compile Include="Clases\Operador.cs" />
     <Compile Include="Clases\StringConeccion.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -225,12 +247,33 @@
     <Compile Include="Inicio_frm.aspx.designer.cs">
       <DependentUpon>Inicio_frm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\acercaDe_frm.aspx.cs">
+      <DependentUpon>acercaDe_frm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\acercaDe_frm.aspx.designer.cs">
+      <DependentUpon>acercaDe_frm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\feriados_frm.aspx.cs">
+      <DependentUpon>feriados_frm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\feriados_frm.aspx.designer.cs">
+      <DependentUpon>feriados_frm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\generar_factura_frm.aspx.cs">
       <DependentUpon>generar_factura_frm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\generar_factura_frm.aspx.designer.cs">
       <DependentUpon>generar_factura_frm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\to_XLS_frm.aspx.cs">
+      <DependentUpon>to_XLS_frm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\to_XLS_frm.aspx.designer.cs">
+      <DependentUpon>to_XLS_frm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
